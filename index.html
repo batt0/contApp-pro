@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Software de Facturación para Autónomos y Pymes | ContApp Pro</title>
+<meta name="description" content="Optimiza tu negocio con ContApp Pro, el software de facturación para autónomos y pymes. ¡Prueba la demo!"/>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://js.stripe.com/v3/"></script>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "ContApp Pro - Software de Facturación para Autónomos y Pymes",
+    "description": "Optimiza la gestión de tu negocio con ContApp Pro. La aplicación web que centraliza tu facturación, inventario y clientes cumpliendo con la normativa VeriFactu y la Ley Crea y Crece.",
+    "publisher": {
+      "@id": "https://www.tu-dominio.com/#organization"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.tu-dominio.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "ContApp Pro"
+        }
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "ContApp Pro",
+    "description": "Aplicación web de facturación, inventario y CRM para autónomos y pymes en España. Cumple con la normativa VeriFactu y la Ley Crea y Crece.",
+    "applicationCategory": ["FinanceApplication", "BusinessApplication"],
+    "operatingSystem": "Web-based",
+    "screenshot": "https://www.tu-dominio.com/ContApp-Aplicacion.webp",
+    "installUrl": "https://www.tu-dominio.com/ContApp-version-cmpr.html",
+    "offers": {
+      "@type": "Offer",
+      "price": "39.95",
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@id": "https://www.tu-dominio.com/#organization"
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "4"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "Josepp" },
+        "reviewBody": "Desde que usamos ContApp Pro, hemos reducido en un 40% los errores en inventario y ahorramos 5 horas semanales en facturación. ¡Increíblemente fácil de usar!",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "María G." },
+        "reviewBody": "La gestión de facturas y el cumplimiento con la ley Crea y Crece es ahora un juego de niños. ¡Imprescindible para cualquier freelance!",
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+      }
+    ],
+    "publisher": {
+      "@id": "https://www.tu-dominio.com/#organization"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://www.tu-dominio.com/#organization",
+    "name": "ContApp Pro",
+    "founder": {
+      "@type": "Person",
+      "name": "Jose L"
+    },
+    "url": "https://www.tu-dominio.com/",
+    "logo": "https://www.tu-dominio.com/ContApp-Logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Support",
+      "email": "contapp.pro@gmail.com"
+    },
+    "sameAs": [
+      "URL_DE_TU_PERFIL_DE_LINKEDIN",
+      "URL_DE_TU_PERFIL_DE_TWITTER",
+      "URL_DE_TU_PERFIL_DE_FACEBOOK"
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿ContApp Pro es un pago único o una suscripción?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ContApp Pro ofrece una licencia completa con un pago único de 39,95€. No hay suscripciones ni costes ocultos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿El software cumple con la nueva ley de facturación en España?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, ContApp Pro garantiza el cumplimiento con la normativa VeriFactu y la Ley Crea y Crece, evitando multas y asegurando que tu facturación sea 100% legal."
+        }
+      }
+    ]
+  }
+]
+</script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-background { background-image: url('Banner-ContApp.webp'); background-size: cover; background-position: center; }
+        .cta-gradient { background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%); }
+        .body-no-scroll { overflow: hidden; }
+        #mobile-footer-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+<header class="bg-white shadow-md sticky top-0 z-50">
+<nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+<a class="flex items-center space-x-3" href="index.html">
+<img alt="Logo de ContApp Pro" class="h-10 w-auto" src="ContApp-Logo.png"/>
+<span class="text-2xl font-bold text-blue-600">ContApp Pro</span>
+</a>
+<div class="hidden md:flex space-x-6 items-center">
+<a class="text-gray-600 hover:text-blue-600 transition duration-300" href="#soluciones">Soluciones</a>
+<a class="text-gray-600 hover:text-blue-600 transition duration-300" href="#funcionalidades">Funcionalidades</a>
+<a class="text-gray-600 hover:text-blue-600 transition duration-300" href="#precios">Precio</a>
+<a class="text-gray-600 hover:text-blue-600 transition duration-300" href="#testimonios">Testimonios</a>
+</div>
+<div class="hidden md:flex items-center space-x-4">
+<a href="ContApp-version-cmpr.html" class="text-blue-600 font-semibold px-5 py-2 rounded-lg border border-blue-600 hover:bg-blue-50 transition duration-300">
+    Prueba Gratis
+</a>
+<a class="cta-gradient text-white font-semibold px-5 py-2 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition duration-300" href="#precios">
+    Comprar Ahora
+</a>
+</div>
+<div class="md:hidden">
+<button class="p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100" id="mobile-menu-button">
+<span class="sr-only">Abrir menú principal</span>
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</nav>
+</header>
+<div class="hidden fixed inset-0 z-[60]" id="mobile-menu">
+<div aria-hidden="true" class="fixed inset-0 bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out opacity-0" id="mobile-menu-overlay"></div>
+<div class="relative ml-auto h-full w-64 bg-white shadow-xl p-6 flex flex-col transition-transform duration-300 ease-in-out transform translate-x-full" id="mobile-menu-panel">
+<div class="flex justify-between items-center mb-8">
+<span class="text-xl font-bold text-blue-600">Menú</span>
+<button class="p-2 rounded-md text-gray-600 hover:text-blue-600 hover:bg-gray-100" id="close-mobile-menu-button">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+<div class="flex-grow flex flex-col space-y-2">
+<a class="mobile-menu-link text-gray-700 hover:text-blue-600 py-2 text-lg" href="#soluciones">Soluciones</a>
+<a class="mobile-menu-link text-gray-700 hover:text-blue-600 py-2 text-lg" href="#funcionalidades">Funcionalidades</a>
+<a class="mobile-menu-link text-gray-700 hover:text-blue-600 py-2 text-lg" href="#precios">Precio</a>
+<a class="mobile-menu-link text-gray-700 hover:text-blue-600 py-2 text-lg" href="#prueba-gratuita">Prueba Gratuita</a>
+<a class="mobile-menu-link text-gray-700 hover:text-blue-600 py-2 text-lg" href="#contacto">Contacto</a>
+<div class="border-t border-b py-2 my-2">
+<button class="w-full flex justify-between items-center text-gray-700 hover:text-blue-600 py-2 text-lg" id="mobile-footer-toggle">
+<span>Más Información</span>
+<svg class="h-5 w-5 transform transition-transform duration-300" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" fill-rule="evenodd"></path>
+</svg>
+</button>
+<div class="pl-4 pt-2 text-sm" id="mobile-footer-content">
+<div class="space-y-4">
+<div>
+<h3 class="font-semibold text-gray-800 mb-2">ContApp Pro</h3>
+<p class="text-gray-600">Optimizando la gestión de negocios en toda España.</p>
+</div>
+<div>
+<h3 class="font-semibold text-gray-800 mb-2">Contacto</h3>
+<p class="text-gray-600">Email: <a class="hover:text-blue-600 mobile-menu-link" href="mailto:contapp.pro@gmail.com">contapp.pro@gmail.com</a></p>
+<p><a class="text-gray-600 hover:text-blue-600 mobile-menu-link" href="#contacto">Soporte</a></p>
+</div>
+<div>
+<h3 class="font-semibold text-gray-800 mb-2">Legal</h3>
+<div class="flex flex-col space-y-2">
+    <a class="text-gray-600 hover:text-blue-600 mobile-menu-link" href="politica-privacidad.html">Política de Privacidad</a>
+    <a class="text-gray-600 hover:text-blue-600 mobile-menu-link" href="aviso-legal.html">Aviso Legal</a>
+    <a class="text-gray-600 hover:text-blue-600 mobile-menu-link" href="cookies.html">Política de Cookies</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-4 space-y-4 border-t">
+<a href="ContApp-version-cmpr.html" class="mobile-menu-link w-full text-center text-blue-600 font-semibold px-5 py-2 rounded-lg border border-blue-600 hover:bg-blue-50 transition duration-300">
+    Prueba Gratis
+</a>
+<a class="mobile-menu-link block text-center cta-gradient text-white font-semibold px-5 py-2 rounded-lg shadow-lg hover:shadow-xl transition duration-300" href="#precios">
+    Comprar Ahora
+</a>
+</div>
+</div>
+</div>
+<main>
+<section class="hero-background relative py-20 md:py-40">
+<div class="absolute inset-0 bg-gray-800 opacity-60"></div>
+<div class="container mx-auto px-6 text-center relative z-10">
+<h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight">
+                    Transforma la gestión de tu negocio. <br/> <span class="text-blue-300">Simple, potente y legal.</span>
+</h1>
+<p class="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-8">
+                    Presentamos ContApp Pro, la aplicación web que centraliza tu facturación, inventario y clientes para darte el control y la tranquilidad que necesitas.
+                </p>
+<a class="cta-gradient text-white font-bold text-lg px-8 py-4 rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition duration-300 inline-block" href="#precios">
+    Empezar Ahora
+</a>
+</div>
+</section>
+<section class="py-16 md:py-24 bg-white" id="soluciones">
+<div class="container mx-auto px-6">
+<div class="text-center mb-12">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900">Soluciones para tu negocio</h2>
+<p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">¿Cansado de la gestión manual y los errores que te roban tiempo y dinero?</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="bg-gray-50 p-6 rounded-lg shadow-sm"><div class="flex items-center mb-3"><svg class="w-8 h-8 text-green-500 mr-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><h3 class="text-xl font-semibold">Control de Stock</h3></div><p class="text-gray-600">Un control minucioso para evitar pérdidas, desperdicios y compras innecesarias.</p></div>
+<div class="bg-gray-50 p-6 rounded-lg shadow-sm"><div class="flex items-center mb-3"><svg class="w-8 h-8 text-green-500 mr-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01M12 6v-1m0-1V4m0 2.01v.01M12 18v-1m0-1v-1m0-1v-1m-3 4h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><h3 class="text-xl font-semibold">Gestión Centralizada</h3></div><p class="text-gray-600">Evita malentendidos en pagos a empleados y proveedores. Todo en un solo lugar.</p></div>
+<div class="bg-gray-50 p-6 rounded-lg shadow-sm"><div class="flex items-center mb-3"><svg class="w-8 h-8 text-green-500 mr-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><h3 class="text-xl font-semibold">Visión Global y Estratégica</h3></div><p class="text-gray-600">Toma decisiones informadas con datos centralizados y fiables al instante.</p></div>
+<div class="bg-gray-50 p-6 rounded-lg shadow-sm"><div class="flex items-center mb-3"><svg class="w-8 h-8 text-green-500 mr-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 20.944a11.955 11.955 0 0118-8.944c0-1.242-.272-2.427-.764-3.5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><h3 class="text-xl font-semibold">Instalación Local y Privacidad</h3></div><p class="text-gray-600">Asegura la privacidad de tus datos con la instalación local del software, dándote control total sobre tu información.</p></div>
+<div class="bg-gray-50 p-6 rounded-lg shadow-sm"><div class="flex items-center mb-3"><svg class="w-8 h-8 text-green-500 mr-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><h3 class="text-xl font-semibold">Copias de Seguridad</h3></div><p class="text-gray-600">Protege tu información con copias de seguridad automáticas, garantizando la tranquilidad de que tus datos están seguros.</p></div>
+<div class="bg-gray-50 p-6 rounded-lg shadow-sm"><div class="flex items-center mb-3"><svg class="w-8 h-8 text-green-500 mr-4" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg><h3 class="text-xl font-semibold">Pagos Sencillos y Únicos</h3></div><p class="text-gray-600">Licencia completa con un pago único, sin suscripciones ni costes ocultos. Integración con Stripe incluida.</p></div>
+</div>
+</div>
+</section>
+<section class="py-16 md:py-24 bg-gray-100" id="solucion">
+<div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
+<div class="md:w-1/2">
+<img alt="Dashboard de ContApp Pro" class="rounded-lg shadow-2xl ring-1 ring-gray-900/10" src="ContApp-Aplicacion.webp"/>
+</div>
+<div class="md:w-1/2">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">La Herramienta que Tu Comercio Necesita</h2>
+<p class="text-lg text-gray-700 mb-6">
+                        Presentamos <strong>ContApp Pro</strong>, la aplicación web sencilla, intuitiva y potente diseñada para optimizar cada proceso de tu negocio y adaptada a tus necesidades.
+                    </p>
+<p class="text-lg text-gray-700">
+                        Con ContApp Pro, podrás centralizar tu información y automatizar las tareas clave, dándote el control y la tranquilidad que siempre has buscado.
+                    </p>
+</div>
+</div>
+</section>
+<section class="py-16 md:py-24 bg-white" id="funcionalidades">
+<div class="container mx-auto px-6">
+<div class="text-center mb-12">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900">Funcionalidades Esenciales y Beneficios Clave</h2>
+<p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">Todo lo que necesitas para llevar tu negocio al siguiente nivel.</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="border border-gray-200 p-8 rounded-xl shadow-lg bg-white transform hover:-translate-y-2 transition-transform duration-300"><div class="bg-blue-100 text-blue-600 rounded-full w-16 h-16 flex items-center justify-center mb-6 shadow-md"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></div><h3 class="text-2xl font-bold mb-3">Facturación Inteligente</h3><p class="text-gray-600">Genera y cobra servicios y productos de forma ágil. Cumplimiento <strong>VeriFactu</strong> y <strong>Ley Crea y Crece</strong> garantizado para evitar multas de hasta 50.000€.</p></div>
+<div class="border border-gray-200 p-8 rounded-xl shadow-lg bg-white transform hover:-translate-y-2 transition-transform duration-300"><div class="bg-blue-100 text-blue-600 rounded-full w-16 h-16 flex items-center justify-center mb-6 shadow-md"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></div><h3 class="text-2xl font-bold mb-3">Control de Inventarios</h3><p class="text-gray-600">Registra, controla y actualiza tu stock en tiempo real. Evita pérdidas y optimiza tus existencias con información precisa.</p></div>
+<div class="border border-gray-200 p-8 rounded-xl shadow-lg bg-white transform hover:-translate-y-2 transition-transform duration-300"><div class="bg-blue-100 text-blue-600 rounded-full w-16 h-16 flex items-center justify-center mb-6 shadow-md"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.653-.125-1.274-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.653.125-1.274-.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></div><h3 class="text-2xl font-bold mb-3">Gestión de Clientes (CRM)</h3><p class="text-gray-600">Organiza la información de tus clientes para fomentar su fidelización y facilitar el envío de notificaciones y promociones.</p></div>
+</div>
+</div>
+</section>
+<section class="py-16 md:py-24 bg-gray-100" id="testimonios">
+<div class="container mx-auto px-6">
+<div class="text-center mb-12">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900">Lo que dicen nuestros clientes</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-white p-6 rounded-lg shadow-md">
+<blockquote class="text-gray-600 italic mb-4">"Desde que usamos ContApp Pro, hemos reducido en un 40% los errores en inventario y ahorramos 5 horas semanales en facturación. ¡Increíblemente fácil de usar!"</blockquote>
+<p class="font-bold text-gray-900">Josepp - Tienda de Moda</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<blockquote class="text-gray-600 italic mb-4">"La gestión de facturas y el cumplimiento con la ley Crea y Crece es ahora un juego de niños. ¡Imprescindible para cualquier freelance!"</blockquote>
+<p class="font-bold text-gray-900">María G. - Consultora Freelance</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<blockquote class="text-gray-600 italic mb-4">"Tener el control del stock en tiempo real ha cambiado por completo la forma en que gestionamos nuestro restaurante. Adiós a las conjeturas."</blockquote>
+<p class="font-bold text-gray-900">Carlos V. - Restaurante El Sabor</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<blockquote class="text-gray-600 italic mb-4">"El pago único es una maravilla. Sin suscripciones ni sorpresas. La interfaz es limpia y va directo al grano. 100% recomendado."</blockquote>
+<p class="font-bold text-gray-900">Ana R. - Taller Artesanal</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 md:py-24 bg-white" id="prueba-gratuita">
+<div class="container mx-auto px-6 text-center">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900">Prueba ContApp Pro Ahora</h2>
+<p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">Experimenta el poder de ContApp Pro con una demostración interactiva. Descubre sus funcionalidades clave sin compromiso y sin necesidad de registrarte.</p>
+<div class="mt-8">
+<a href="ContApp-version-cmpr.html" class="cta-gradient text-white font-bold text-lg px-8 py-4 rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition duration-300 inline-block">
+    Iniciar Prueba Interactiva
+</a>
+</div>
+</div>
+</section>
+<section class="py-16 md:py-24 bg-gray-100" id="precios">
+<div class="container mx-auto px-6">
+<div class="text-center mb-12">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900">Una Inversión Inteligente</h2>
+<p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">Un único pago para transformar tu negocio para siempre. Sin suscripciones ni costes ocultos.</p>
+</div>
+<div class="flex flex-col md:flex-row justify-center items-center gap-8">
+<div class="border-2 border-blue-600 rounded-xl shadow-2xl p-8 w-full max-w-md bg-white">
+<div class="text-center">
+<h3 class="text-2xl font-bold text-blue-600 mb-2">Licencia Completa</h3>
+<p class="text-gray-500 mb-4">Acceso total y para siempre a todas las funcionalidades.</p>
+<p class="text-5xl font-extrabold text-gray-900 mb-2">39,95€</p>
+<p class="text-lg font-medium text-gray-500 mb-6">Pago Único (IVA incluido)</p>
+</div>
+<ul class="space-y-4 text-gray-700 mb-8">
+<li class="flex items-center"><svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Todas las funcionalidades actuales y futuras</li>
+<li class="flex items-center"><svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Cumplimiento VeriFactu y Ley Crea y Crece</li>
+<li class="flex items-center"><svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Soporte por email y chat</li>
+<li class="flex items-center"><svg class="w-6 h-6 text-green-500 mr-2" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Copias de seguridad automáticas</li>
+</ul>
+<a href="pago.html" class="cta-gradient text-white text-center font-bold text-lg w-full block py-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition duration-300">Comprar Licencia Completa</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="py-10 md:py-12 bg-white" id="contacto">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900">¿Tienes dudas? ¡Contáctanos!</h2>
+            <p class="text-lg text-gray-600 mt-3 max-w-2xl mx-auto">Rellena el siguiente formulario y nuestro equipo se pondrá en contacto contigo lo antes posible.</p>
+        </div>
+        <div class="max-w-2xl mx-auto bg-gray-50 p-6 rounded-lg shadow-md">
+            <form action="https://formsubmit.co/5a91bd6ebb2b65a7d63e6b2137888ec7" method="POST">
+                <div class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
+                        <div class="mt-1">
+                            <input type="text" name="name" id="name" autocomplete="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <div class="mt-1">
+                            <input type="email" name="email" id="email" autocomplete="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="asunto" class="block text-sm font-medium text-gray-700">Asunto</label>
+                        <div class="mt-1">
+                            <input type="text" name="asunto" id="asunto" required class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="mensaje" class="block text-sm font-medium text-gray-700">Mensaje</label>
+                        <div class="mt-1">
+                            <textarea id="mensaje" name="mensaje" rows="3" required class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="_next" value="https://batt0.github.io/contApp-pro/gracias.html">
+                    
+                    <input type="hidden" name="_subject" value="Nuevo Mensaje de Contacto - ContApp Pro">
+
+                    <div>
+                        <button type="submit" class="w-full cta-gradient text-white font-bold py-3 px-4 rounded-lg hover:shadow-xl transition duration-300 mt-2">
+                            Enviar Mensaje
+                        </button>
+                    </div>
+                </div>
+            </form>
+            </div>
+    </div>
+</section>
+<section class="py-16 md:py-24 bg-gray-800 text-white" id="cta">
+<div class="container mx-auto px-6 text-center">
+<div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-md max-w-3xl mx-auto mb-8 text-left">
+<div class="flex">
+<div class="py-1"><svg class="fill-current h-6 w-6 text-red-500 mr-4" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zM9 5v6h2V5H9zm0 8h2v-2H9v2z"></path></svg></div>
+<div>
+<p class="font-bold">¡Atención! La normativa ya está aquí</p>
+<p class="text-sm">Desde el 1 de julio de 2025, las facturas en Word o Excel ya no son válidas para la mayoría de negocios en España. ¡No te quedes atrás!</p>
+</div>
+</div>
+</div>
+<h2 class="text-4xl md:text-5xl font-extrabold mb-4">¿Listo para transformar tu negocio?</h2>
+<p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+                    La digitalización es clave para la supervivencia y el crecimiento. Prepárate para el futuro y toma el control hoy mismo.
+                </p>
+<a class="bg-white text-blue-600 font-bold text-xl px-10 py-5 rounded-lg shadow-2xl hover:bg-gray-200 transform hover:scale-105 transition duration-300 inline-block" href="#precios">
+    Comprar Ahora
+</a>
+</div>
+</section>
+</main>
+<footer class="bg-gray-900 text-white">
+<div class="container mx-auto px-6 py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+    <h3 class="text-xl font-bold mb-4">ContApp Pro</h3>
+    <p class="text-gray-400">Optimizando la gestión de negocios en toda España.</p>
+</div>
+<div>
+    <h3 class="text-xl font-bold mb-4">Soluciones</h3>
+    <ul class="space-y-2">
+        <li><a class="text-gray-400 hover:text-white" href="#funcionalidades">Funcionalidades</a></li>
+        <li><a class="text-gray-400 hover:text-white" href="#precios">Precio</a></li>
+        <li><a class="text-gray-400 hover:text-white" href="#prueba-gratuita">Prueba Gratuita</a></li>
+    </ul>
+</div>
+<div>
+    <h3 class="text-xl font-bold mb-4">Legal</h3>
+    <ul class="space-y-2">
+        <li><a class="text-gray-400 hover:text-white" href="politica-privacidad.html">Política de Privacidad</a></li>
+        <li><a class="text-gray-400 hover:text-white" href="aviso-legal.html">Aviso Legal</a></li>
+        <li><a class="text-gray-400 hover:text-white" href="cookies.html">Política de Cookies</a></li>
+    </ul>
+</div>
+<div>
+    <h3 class="text-xl font-bold mb-4">Contacto</h3>
+    <ul class="space-y-2">
+      <li><p class="text-gray-400">Email: <a class="hover:text-white" href="mailto:contapp.pro@gmail.com">contapp.pro@gmail.com</a></p></li>
+      <li><a class="text-gray-400 hover:text-white" href="#contacto">Soporte</a></li>
+    </ul>
+</div>
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 text-center text-gray-500">
+    <p>© 2025 ContApp Pro. Todos los derechos reservados.</p>
+</div>
+</div>
+</footer>
+
+<div id="cookie-consent-banner" class="hidden fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-[100] transition-transform duration-500 ease-in-out transform translate-y-full">
+    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-gray-200">
+            🍪 Usamos cookies para mejorar tu experiencia. Al aceptar, consientes el uso de todas las cookies. Para más información, consulta nuestra 
+            <a href="cookies.html" class="font-semibold text-white hover:underline">Política de Cookies</a>.
+        </p>
+        <div class="flex-shrink-0 flex gap-x-3">
+            <button id="cookie-deny-btn" class="px-4 py-2 text-sm font-medium rounded-md bg-gray-600 hover:bg-gray-500 transition">Denegar</button>
+            <button id="cookie-accept-btn" class="px-4 py-2 text-sm font-medium rounded-md text-white cta-gradient hover:shadow-lg transition">Aceptar</button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Lógica del Menú Móvil
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const closeMobileMenuButton = document.getElementById('close-mobile-menu-button');
+            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+            const mobileMenuPanel = document.getElementById('mobile-menu-panel');
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+            const footerToggleBtn = document.getElementById('mobile-footer-toggle');
+            const footerContent = document.getElementById('mobile-footer-content');
+            const footerIcon = footerToggleBtn.querySelector('svg');
+
+            footerToggleBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); 
+                const isClosed = footerContent.style.maxHeight === '0px' || !footerContent.style.maxHeight;
+                if(isClosed) {
+                    footerContent.style.maxHeight = footerContent.scrollHeight + 'px';
+                    footerIcon.classList.add('rotate-180');
+                } else {
+                    footerContent.style.maxHeight = '0px';
+                    footerIcon.classList.remove('rotate-180');
+                }
+            });
+
+            const openMobileMenu = () => {
+                mobileMenu.classList.remove('hidden');
+                document.body.classList.add('body-no-scroll');
+                requestAnimationFrame(() => {
+                    mobileMenuOverlay.classList.remove('opacity-0');
+                    mobileMenuPanel.classList.remove('translate-x-full');
+                });
+            };
+
+            const closeMobileMenu = () => {
+                mobileMenuOverlay.classList.add('opacity-0');
+                mobileMenuPanel.classList.add('translate-x-full');
+                
+                if (footerContent) {
+                    footerContent.style.maxHeight = '0px';
+                    footerIcon.classList.remove('rotate-180');
+                }
+
+                const onTransitionEnd = () => {
+                    mobileMenu.classList.add('hidden');
+                    document.body.classList.remove('body-no-scroll');
+                    mobileMenuPanel.removeEventListener('transitionend', onTransitionEnd);
+                };
+                
+                mobileMenuPanel.addEventListener('transitionend', onTransitionEnd);
+            };
+
+            mobileMenuButton.addEventListener('click', openMobileMenu);
+            closeMobileMenuButton.addEventListener('click', closeMobileMenu);
+            mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+            
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    if (link.getAttribute('href').startsWith('#')) {
+                        closeMobileMenu();
+                    }
+                });
+            });
+
+            // --- Lógica del Banner de Cookies ---
+            const banner = document.getElementById('cookie-consent-banner');
+            const acceptBtn = document.getElementById('cookie-accept-btn');
+            const denyBtn = document.getElementById('cookie-deny-btn');
+
+            const getCookie = (name) => {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                if (parts.length === 2) return parts.pop().split(';').shift();
+            };
+
+            if (!getCookie('cookie_consent_status')) {
+                banner.classList.remove('hidden');
+                setTimeout(() => {
+                    banner.classList.remove('translate-y-full');
+                }, 100);
+            }
+
+            const hideBanner = () => {
+                 banner.classList.add('translate-y-full');
+                 setTimeout(() => {
+                    banner.classList.add('hidden');
+                }, 500); // Coincide con la duración de la transición
+            }
+
+            acceptBtn.addEventListener('click', () => {
+                document.cookie = 'cookie_consent_status=accepted; path=/; max-age=31536000; SameSite=Lax';
+                hideBanner();
+            });
+
+            denyBtn.addEventListener('click', () => {
+                document.cookie = 'cookie_consent_status=denied; path=/; SameSite=Lax';
+                hideBanner();
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - ContApp Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .cta-gradient { 
+            background: linear-gradient(90deg, #3b82f6 0%, #2563eb 100%); 
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- ===== Header ===== -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <img src="ContApp-Logo.png" alt="Logo de ContApp Pro" class="h-10 w-auto">
+                <span class="text-2xl font-bold text-blue-600">ContApp Pro</span>
+            </a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="index.html#soluciones" class="text-gray-600 hover:text-blue-600 transition duration-300">Soluciones</a>
+                <a href="index.html#precios" class="text-gray-600 hover:text-blue-600 transition duration-300">Precio</a>
+                <a href="index.html#testimonios" class="text-gray-600 hover:text-blue-600 transition duration-300">Testimonios</a>
+            </div>
+            <div class="flex items-center">
+                 <a href="mailto:hola@contapp.pro" class="text-blue-600 font-semibold px-5 py-2 rounded-lg hover:bg-blue-50 transition duration-300 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                    </svg>
+                    <span class="hidden sm:inline">Contacto</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== Main Content ===== -->
+    <main class="container mx-auto px-6 py-12 md:py-20">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-10">
+                <h1 class="text-3xl md:text-4xl font-extrabold text-gray-900">Estás a un paso de optimizar tu negocio</h1>
+                <p class="text-lg text-gray-600 mt-3">Confirma tu compra y obtén acceso inmediato a ContApp Pro.</p>
+            </div>
+
+            <!-- Contenedor principal con dos columnas -->
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
+
+                <!-- Columna Izquierda: Resumen del Pedido -->
+                <div class="lg:col-span-2 bg-white p-6 md:p-8 rounded-xl shadow-lg border border-gray-200 order-2 lg:order-1">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Resumen de tu compra</h2>
+                    
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="flex items-center gap-4">
+                             <!-- ICONO REEMPLAZADO POR EL LOGO PRINCIPAL -->
+                             <img src="ContApp-Logo.png" alt="Logo ContApp Pro" class="h-12 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/100x48/000000/FFFFFF?text=Logo';">
+                             <div>
+                                <p class="font-semibold text-gray-800">ContApp Pro - Licencia Completa</p>
+                                <p class="text-sm text-gray-500">Acceso de por vida</p>
+                             </div>
+                        </div>
+                        <p class="text-lg font-bold text-gray-900">39,95€</p>
+                    </div>
+
+                    <div class="border-t border-gray-200 pt-6">
+                        <h3 class="text-lg font-semibold text-gray-700 mb-4">¿Qué incluye tu licencia?</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex items-start gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Todas las funcionalidades <strong>presentes y futuras</strong>.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Copias de seguridad <strong>automáticas y manuales</strong>.</span>
+                            </li>
+                             <li class="flex items-start gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                                <span>Soporte técnico por email y chat.</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+                                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                                <span><strong>Pago único</strong>, sin suscripciones.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Métodos de Pago -->
+                <div class="lg:col-span-3 bg-white p-6 md:p-8 rounded-xl shadow-lg border border-gray-200 order-1 lg:order-2">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-bold text-gray-800">Elige tu método de pago</h2>
+                        <div class="flex items-center gap-2 text-sm text-gray-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                              <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+                            </svg>
+                            <span>Pago 100% Seguro</span>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <!-- Opción Stripe -->
+                        <a href="https://buy.stripe.com/bJe00k6HtcIKbVh0wDd3i00" target="_blank" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all duration-300">
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center gap-4">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" alt="Logo de Stripe" class="h-8">
+                                    <div>
+                                        <p class="font-semibold text-gray-800">Pagar con Tarjeta</p>
+                                        <p class="text-sm text-gray-500">Visa, Mastercard, Amex...</p>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </div>
+                        </a>
+
+                        <!-- Opción PayPal -->
+                        <a href="https://www.paypal.com/paypalme/joselopezseo/39.95" target="_blank" class="block p-5 border-2 border-gray-200 rounded-lg hover:border-blue-500 hover:bg-blue-50 transition-all duration-300">
+                            <div class="flex justify-between items-center">
+                                <div class="flex items-center gap-4">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="Logo de PayPal" class="h-8">
+                                    <div>
+                                        <p class="font-semibold text-gray-800">Pagar con PayPal</p>
+                                        <p class="text-sm text-gray-500">Usa el saldo de tu cuenta PayPal</p>
+                                    </div>
+                                </div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="mt-8 text-center text-sm text-gray-500">
+                        <p>Al completar la compra, recibirás un correo electrónico con tu licencia e instrucciones para empezar. Si tienes alguna duda, <a href="mailto:hola@contapp.pro" class="text-blue-600 hover:underline font-medium">contáctanos</a>.</p>
+                        <p class="mt-2">Todos los precios incluyen IVA.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-400">
+            <p>© 2025 ContApp Pro. Todos los derechos reservados.</p>
+            <p class="mt-2"><a href="index.html#legal" class="hover:text-white">Política de Privacidad</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
